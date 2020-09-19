@@ -1,4 +1,3 @@
-from os import write
 import pandas as pd
 import sys
 import xlsxwriter
@@ -22,6 +21,9 @@ def main():
         print_help()
         return
 
+    calc(CLASS)
+
+def calc(CLASS):
     print(f'Reading {CLASS}_Master.xlsx')
     master_list = convert_excel_to_list(f'{CLASS}_Master.xlsx','a')
     master_list = format_list(master_list)
@@ -43,6 +45,7 @@ def main():
     print(f'Absent List: {absent_list}')
     print(f'Writing to {CLASS}_ABSENT.xlsx')
     write_excel_file(CLASS,absent_list)
+    return absent_list  
 
 def write_excel_file(class_name,list):
     with xlsxwriter.Workbook(f'{class_name}_ABSENT.xlsx') as workbook:
