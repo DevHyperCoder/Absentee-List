@@ -1,5 +1,5 @@
-from flask import Flask,redirect,url_for,render_template,request
-
+from flask import Flask,render_template,request
+import os
 from main import calc
 
 app=Flask(__name__)
@@ -11,8 +11,11 @@ def home():
         today = request.files['today']
         master.save(('A_Master.xlsx'))
         today.save(('A.xlsx'))
-        
-        return render_template('index.html',calc=calc('A'))
+        calcA=calc('A')
+        os.remove('A_ABSENT.xlsx')
+        os.remove('A.xlsx')
+        os.remove('A_Master.xlsx')
+        return render_template('index.html',calc=calcA)
 
     return render_template('index.html')
 
