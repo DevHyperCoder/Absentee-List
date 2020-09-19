@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Absentee list</title>
+    <style>
+        body {
+            background-color: #23232e;
+            color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+            height: 400px;
+            align-items: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            margin-bottom: 3rem;
+        }
+        .calc{
+            margin-top: 5rem;
+        }
+
+    </style>
 </head>
+
 <body>
+<h1>Absentees lister</h1>
+
     <form action="/" enctype="multipart/form-data" method="post">
-    <input required type="file" name="master" value="MASTER">
-    <input required type="file" name="today" value="TODAY">
-    <input type="submit" value="Submiut briug">
+        <label for="master">Master list 🔻 </label>
+        <input required type="file" name="master" value="MASTER">
+        <label for="today">Today's list 🔻 </label>
+        <input required type="file" name="today" value="TODAY">
+        <input type="submit" value="Get absentees">
     </form>
+    <div class="calc">
+        
     {{calc}}
+    </div>
 </body>
+
 </html>
