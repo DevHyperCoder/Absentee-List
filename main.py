@@ -68,6 +68,7 @@ def format_list(list):
         e = list[i]
         e =e.upper()
         e=e.strip()
+        e = e.replace(' ','')
         list[i] =e
     return list
 
